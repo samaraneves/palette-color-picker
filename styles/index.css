@@ -32,7 +32,7 @@ body {
 
 .generator__copy {
     background-color: #ffffff;
-    padding: .2rem;
+    padding: 0.1rem 0;
     border-radius: 25px;
 }
 
@@ -45,10 +45,22 @@ body {
     font-weight: 300;
 }
 
+.generator__section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (min-width: 720px) {
     .generator__copy,
     .generator__button {
-        max-width: 480px;
         margin: 0 auto;
+    }
+    .generator__copy {
+        max-width: 480px;
+    }
+
+    .generator__button {
+        max-width: 350px;
     }
 }
