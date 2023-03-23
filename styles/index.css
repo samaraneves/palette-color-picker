@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #F2F2F2;
     font-family: 'Mulish', sans-serif;
@@ -51,6 +57,38 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.card {
+    width: 100%;
+    max-width: 290px;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__hexadecimal {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.card__background {
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 720px) {
+    .card {
+        max-width: 200px;
+    }
+}
+
 @media screen and (min-width: 720px) {
     .generator__copy,
     .generator__button {
