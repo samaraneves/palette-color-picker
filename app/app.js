@@ -1,15 +1,19 @@
 import { elementCard } from './utils/element.js'
+import { Palette } from './utils/palette.js'
 
 const paletteArea = document.querySelector('.generator__section')
 
-const array = ['#000', '#000', '#000', '#000', '#000']
+const pallette = new Palette()
+
+const colors = pallette.createPalette()
+
+const elements = colors.map(item => elementCard(item)).join('')
+
+window.onload = paletteArea.innerHTML = elements;
+
 document
     .querySelector('#generator__palette__button')
     .addEventListener('click', () => {
-    let element = ''
-    array.forEach((value) => {
-        element = elementCard(value)
-    })
-    paletteArea.innerHTML = element
 
+    paletteArea.innerHTML = elements
 })
