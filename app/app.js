@@ -14,6 +14,11 @@ window.onload = paletteArea.innerHTML = elements;
 document
     .querySelector('#generator__palette__button')
     .addEventListener('click', () => {
+        const cardPalette = document.querySelectorAll('.card__background')
 
-    paletteArea.innerHTML = elements
+            if(cardPalette) {
+                cardPalette.forEach(element => {
+                    element.style.backgroundColor = pallette.newColor()
+                });
+            }  
 })

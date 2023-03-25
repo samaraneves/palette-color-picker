@@ -28,6 +28,11 @@ body {
     font-weight: 400;
     display: block;
 }
+.generator__button:hover,
+.generator__button:active{
+    transition: .3s;
+    background-color: #4b37a3;
+}
 
 .generator__instruction {
     margin: 1rem 0;

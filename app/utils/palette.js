@@ -4,11 +4,11 @@ export class Palette {
         this._palette = new Array(5)
     }
 
-    _newColor() {
+    newColor() {
         return `#${Math.floor(Math.random()*16777215).toString(16)}`
     }
 
     createPalette() {
-    return this._palette.fill(null).map((_) => this._newColor())
+        return this._palette.fill(null).map((_) => this.newColor())
     }
 }
