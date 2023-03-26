@@ -1,25 +1,33 @@
-import { elementCard } from './utils/element.js'
-import { copyToClipboard, getKeyPressedCode } from './utils/keyboard.js'
-import { Palette } from './utils/palette.js'
+import { 
+    changeTextContentHTMLElement, 
+    elementCard, 
+    getDocumentAllElements, 
+    getDocumentElement, 
+    getDocumentElementById, 
+    getTextContentHTMLElement, 
+    selectFirstElementChild, 
+    selectLastElementChild, 
+    styleHTMLElement 
+} from './utils/element.js'
+import { copyStringToClipboard, getKeyPressedCode } from './utils/keyboard.js'
+import { convertToArray, pipe } from './utils/operators.js'
+import { generatePalette } from './utils/palette.js'
 
-const paletteArea = document.querySelector('.generator__section')
+const paletteArea = getDocumentElement('generator__section')
 
-
-const pallette = new Palette()
-
-const colors = pallette.createPalette()
+const colors = generatePalette()
 
 const elements = colors.map(item => elementCard(item)).join('')
 
 const generateNewPallette = (elements) => {
             if(elements) {
                 elements.forEach(element => {
-                    const backgroundElement = element.firstElementChild
-                    const textHexadecimalElement = element.lastElementChild
+                    const backgroundElement = selectFirstElementChild(element)
+                    const textHexadecimalElement = selectLastElementChild(element)
                     const newColor = pallette.newColor()
                 
-                    backgroundElement.style.backgroundColor = newColor
-                    textHexadecimalElement.textContent = newColor
+                    styleHTMLElement(backgroundElement, 'backgroundColor', newColor)
+                    changeTextContentHTMLElement(textHexadecimalElement, newColor)
                 });
             } 
 }
@@ -27,16 +35,15 @@ const generateNewPallette = (elements) => {
 window.addEventListener("DOMContentLoaded", () => {
     paletteArea.innerHTML = elements;
 
-    const cards = document.querySelectorAll('.card')
+    const cards = getDocumentAllElements('card')
 
-    document
-    .querySelector('#generator__palette__button')
+    getDocumentElementById('generator__palette__button')
     .addEventListener('click', () => generateNewPallette(cards))
 
     cards.forEach((element) => {
         element.addEventListener('click', () => {
-            const textElement = element.lastElementChild
-            copyToClipboard(textElement)
+            const textElement = pipe(selectLastElementChild, getTextContentHTMLElement)(element)
+            copyStringToClipboard(textElement)
         })
     });
 
@@ -47,12 +54,12 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         if(keyPressed === 99) {
-            const teste = document.querySelectorAll('.card__hexadecimal')
+            const teste = getDocumentAllElements('card__hexadecimal')
             
-            const text = Array.from(teste, (item) => item.innerText)
-            console.log(text)
+            const arrayToContentElements = convertToArray(teste, item => getTextContentHTMLElement(item))
+
+            copyStringToClipboard(arrayToContentElements)
         }
-        
     })
 });
 

@@ -1,14 +1,3 @@
-export class Palette {
+export const newColor = () => `#${Math.floor(Math.random()*16777215).toString(16)}`
 
-    constructor() {
-        this._palette = new Array(5)
-    }
-
-    newColor() {
-        return `#${Math.floor(Math.random()*16777215).toString(16)}`
-    }
-
-    createPalette() {
-        return this._palette.fill(null).map((_) => this.newColor())
-    }
-}
+export const generatePalette = () => new Array(5).fill(null).map((_) => newColor())

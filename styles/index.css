@@ -88,6 +88,73 @@ body {
     border-radius: 5px;
 }
 
+.modal {
+    background-color: rgb(12,18,38, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__form {
+    background-color: #FFF;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+}
+
+.modal__legend {
+    font-size: 1.3rem;
+    color: #0c1226;
+    font-weight: 600;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.modal__paragraph {
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.modal__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.modal__input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 2px solid #7E6CCA;
+    width: 100%;
+}
+
+.modal__button--copy {
+    border-radius: 5px;
+    background-color: #7E6CCA;
+    padding: 0.2rem 0.5rem;
+}
+
+.modal__button--close {
+    border-radius: 2rem;
+    width: 40px;
+    height: 40px;
+    background-color: #7E6CCA;
+    position: absolute;
+    right: 1rem;
+}
+
+
 @media screen and (min-width: 720px) {
     .card {
         max-width: 200px;
