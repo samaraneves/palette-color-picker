@@ -61,6 +61,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -154,10 +155,26 @@ body {
     right: 1rem;
 }
 
+.generator__alert {
+    padding: 1rem;
+    background-color: #0C1226;
+    width: 100%;
+    display: block;
+    color: #E9E9EC;
+    font-weight: 100;
+    font-size: 14px;
+    border-radius: 2rem;
+    text-align: center;
+    margin: 1rem auto;
+}
 
 @media screen and (min-width: 720px) {
     .card {
         max-width: 200px;
+    }
+
+    .generator__alert { 
+        max-width: 500px;
     }
 }
 

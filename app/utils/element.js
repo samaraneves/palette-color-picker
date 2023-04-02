@@ -1,9 +1,13 @@
+export const createHTMLelement = (tagName = '', className = '', textContent = '') => {
+    const element = document.createElement(tagName);
+    element.className = className
 
-export const getDocumentAllElements = (query) => document.querySelectorAll(`.${query}`)
-
-export const getDocumentElement = (query) => document.querySelector(`.${query}`)
-
-export const getDocumentElementById = (query) => document.getElementById(query)
+    if(textContent) {
+        const textContentElement = document.createTextNode(textContent)
+        element.appendChild(textContentElement)
+    }
+    return element
+}
 
 export const selectFirstElementChild = (element) => element.firstElementChild
 
@@ -14,3 +18,4 @@ export const styleHTMLElement = (element, cssProperty, cssPropertyValue) => elem
 export const getTextContentHTMLElement = (element) => element.textContent
 
 export const changeTextContentHTMLElement = (element, newContent) => element.textContent = newContent
+
