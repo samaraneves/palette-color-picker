@@ -156,16 +156,34 @@ body {
 }
 
 .generator__alert {
-    padding: 1rem;
+    padding: .5rem 1rem;
+    margin: .5rem auto;
     background-color: #0C1226;
-    width: 100%;
-    display: block;
-    color: #E9E9EC;
-    font-weight: 100;
-    font-size: 14px;
-    border-radius: 2rem;
+    color: #E8ECF3;
+    border-radius: 3rem;
+    width: auto;
     text-align: center;
-    margin: 1rem auto;
+    line-height: 1.8;
+    animation: copyAlert 10s;
+    animation-iteration-count: infinite;
+    position: fixed;
+    top: 1rem;
+    font-size: 0.9rem;
+    display: block;
+    left: 0;
+    right: 0;
+}
+
+@keyframes copyAlert {
+    from {
+        transform: translate(0, -180px);
+    }
+    50% {
+        transform: translate(0, 5px);
+    }
+    100% {
+        transform: translate(0, -180px);
+    }
 }
 
 @media screen and (min-width: 720px) {
@@ -189,5 +207,11 @@ body {
 
     .generator__button {
         max-width: 350px;
+    }
+}
+
+@media(min-width: 432px) {
+    .copy {
+        top: 0.5rem;
     }
 }

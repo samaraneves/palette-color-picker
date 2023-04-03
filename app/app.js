@@ -1,9 +1,9 @@
 import { 
     changeTextContentHTMLElement, 
-    createHTMLelement, 
     getTextContentHTMLElement, 
     selectLastElementChild, 
-    styleHTMLElement 
+    styleHTMLElement, 
+    toast
 } from './utils/element.js'
 import { copyStringToClipboard, handleKeyPress } from './utils/keyboard.js'
 import { convertToArray, pipe } from './utils/operators.js'
@@ -24,26 +24,32 @@ const generateNewPalette = (elements) => {
 
 const onClickCard = (element) => {
     const textElement = pipe(selectLastElementChild, getTextContentHTMLElement)(element)
+    
+    toast(`A cor ${textElement} foi copiada para a sua área de transferência!`)
+
     copyStringToClipboard(textElement)
 }
 
-const convertElementsArrayClipBoard = () => {
+const copyPalette = () => {
     const cardHexadecimalElements = document.querySelectorAll('.card__hexadecimal')
             
     const arrayToContentElements = convertToArray(cardHexadecimalElements, item => getTextContentHTMLElement(item))
+
+    toast(`A paleta foi copiada para a sua área de transferência!`)
 
     copyStringToClipboard(arrayToContentElements)
 }
 
 const onDOMContentLoaded = () => {
     const cards = Array.from(document.querySelectorAll('.card'))
+
     const generatorPaletteButton = document.querySelector('#generator__palette__button')
     
     generateNewPalette(cards)
 
     const keyFunctions = [
         [32, () => generateNewPalette(cards)],
-        [99, convertElementsArrayClipBoard],
+        [99, copyPalette],
     ];
 
     generatorPaletteButton.addEventListener('click', () => generateNewPalette(cards))

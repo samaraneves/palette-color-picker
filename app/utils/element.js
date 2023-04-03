@@ -9,6 +9,20 @@ export const createHTMLelement = (tagName = '', className = '', textContent = ''
     return element
 }
 
+export const toast = (message = '', timeout = 11000) => {
+    const element = createHTMLelement(
+        'strong',
+        'generator__alert', 
+        message
+    )
+
+    document.body.insertBefore(element, document.querySelector('.generator__title'))
+
+    setTimeout(() => {
+        element.remove()
+    }, timeout);
+}
+
 export const selectFirstElementChild = (element) => element.firstElementChild
 
 export const selectLastElementChild = (element) => element.lastElementChild
