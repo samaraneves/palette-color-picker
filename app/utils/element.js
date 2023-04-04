@@ -9,7 +9,7 @@ export const createHTMLelement = (tagName = '', className = '', textContent = ''
     return element
 }
 
-export const toast = (message = '', timeout = 11000) => {
+export const toast = (message = '', timeout = 8100) => {
     const element = createHTMLelement(
         'strong',
         'generator__alert', 

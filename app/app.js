@@ -23,9 +23,12 @@ const generateNewPalette = (elements) => {
 }
 
 const onClickCard = (element) => {
-    const textElement = pipe(selectLastElementChild, getTextContentHTMLElement)(element)
-    
-    toast(`A cor ${textElement} foi copiada para a sua área de transferência!`)
+
+    const textElement = pipe(selectLastElementChild)(element)
+
+    const textElementString = pipe(getTextContentHTMLElement)(textElement)
+
+    toast(`A cor ${textElementString} foi copiada para a sua área de transferência!`)
 
     copyStringToClipboard(textElement)
 }
