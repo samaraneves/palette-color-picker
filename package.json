@@ -1,0 +1,29 @@
+{
+  "name": "palette-color-picker",
+  "version": "1.0.0",
+  "description": "A simple color palette creation screen.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "live-server --open=./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samaraneves/palette-color-picker.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "javascript",
+    "mobile-first"
+  ],
+  "author": "Samara Neves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samaraneves/palette-color-picker/issues"
+  },
+  "homepage": "https://github.com/samaraneves/palette-color-picker#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
